@@ -1,0 +1,38 @@
+current directory: /Users/imaharu/Desktop/sample_rails/vendor/bundle/gems/ffi-1.10.0/ext/ffi_c
+/Users/imaharu/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20190331-84653-1of3atf.rb extconf.rb
+checking for ffi.h... no
+checking for ffi.h in /usr/local/include,/usr/include/ffi... no
+checking for shlwapi.h... no
+checking for ruby/thread.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/imaharu/Desktop/sample_rails/vendor/bundle/gems/ffi-1.10.0/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /Users/imaharu/Desktop/sample_rails/vendor/bundle/gems/ffi-1.10.0/ext/ffi_c
+make "DESTDIR="
+Configuring libffi
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+  Referenced from: /usr/local/bin/awk
+  Reason: image not found
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+  Referenced from: /usr/local/bin/awk
+  Reason: image not found
+clang: error: unsupported option '-print-multi-os-directory'
+clang: error: no input files
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+  Referenced from: /usr/local/bin/gawk
+  Reason: image not found
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+  Referenced from: /usr/local/bin/gawk
+  Reason: image not found
+./config.status: line 1305: 87251 Done(141)               eval sed \"\$ac_sed_extra\" "$ac_file_inputs"
+     87252 Abort trap: 6           | $AWK -f "$ac_tmp/subs.awk" > $ac_tmp/out
+config.status: error: could not create include/Makefile
+make: *** ["/Users/imaharu/Desktop/sample_rails/vendor/bundle/gems/ffi-1.10.0/ext/ffi_c/libffi-x86_64-darwin17"/.libs/libffi_convenience.a] Error 1
+
+make failed, exit code 2
