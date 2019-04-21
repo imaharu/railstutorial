@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails',        '5.1.2'
 gem 'bcrypt',         '3.1.12'
 gem 'puma',         '3.9.1'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
 gem 'coffee-rails', '4.2.2'
@@ -35,10 +37,14 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :production do
   gem 'pg', '0.18.4'
+  gem 'fog', '1.42'
 end
 
 # Windows環境ではtzinfo-dataというgemを含める必要があります
