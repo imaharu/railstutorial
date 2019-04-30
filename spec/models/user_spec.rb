@@ -46,9 +46,6 @@ RSpec.describe User, type: :model do
   let(:user) { create(:user) }
 
   context "name length の境界線テスト" do
-    # before do
-    #   @user = create(:user)
-    # end
 
     it "nameがblank" do
       user.name = ""
@@ -171,7 +168,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  it "userが削除されたらmicropostsを削除される" do
+  it "userが削除されたらmicropostsが削除される" do
     create_num = 10
     user = create(:user, :user_with_microposts, microposts_count: create_num)
     expect { user.destroy }.to change { Micropost.count }.by(-(create_num))
