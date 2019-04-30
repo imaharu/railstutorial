@@ -6,13 +6,11 @@ ENV APP_ROOT /sample_app
 RUN mkdir $APP_ROOT
 
 WORKDIR $APP_ROOT
-# ADD Gemfile $APP_ROOT
-# ADD Gemfile.lock $APP_ROOT
-COPY Gemfile $APP_HOME/Gemfile
-COPY Gemfile.lock $APP_HOME/Gemfile.lock
+ADD Gemfile $APP_HOME/Gemfile
+ADD Gemfile.lock $APP_HOME/Gemfile.lock
 
 RUN bundle config --global build.nokogiri --use-system-libraries
-RUN  bundle install
+RUN bundle install
 ADD . $APP_ROOT
 
 CMD ["set", "-e"]
