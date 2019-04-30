@@ -3,6 +3,6 @@ FactoryBot.define do
     name { Faker::Name.name }
     sequence(:email) { |n| "rails_tutorial#{format('%03d', n)}@example.com" }
     password { "password" }
-    password_digest { "password" }
+    password_confirmation { "password" }
   end
 end

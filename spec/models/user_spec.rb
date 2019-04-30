@@ -170,13 +170,13 @@ RSpec.describe User, type: :model do
       expect(@user.errors[:password]).to include("can't be blank")
     end
 
-    it "passwordは6文字" do
-      @user.password =  "a" * 6
+    it "passwordが6文字" do
+      @user.password =  @user.password_confirmation = "a" * 6
       expect(@user).to be_valid
     end
 
     it "passwordが5文字" do
-      @user.password = "a" * 5
+      @user.password = @user.password_confirmation = "a" * 5
       expect(@user).to_not be_valid
     end
   end
