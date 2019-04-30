@@ -4,5 +4,15 @@ FactoryBot.define do
     sequence(:email) { |n| "rails_tutorial#{format('%03d', n)}@example.com" }
     password { "password" }
     password_confirmation { "password" }
+
+    trait :user_with_microposts do
+      transient do
+        microposts_count { 5 }
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:micropost, evaluator.microposts_count, user: user)
+      end
+    end
   end
 end
