@@ -4,6 +4,8 @@ FactoryBot.define do
     sequence(:email) { |n| "rails_tutorial#{format('%03d', n)}@example.com" }
     password { "password" }
     password_confirmation { "password" }
+    activated { true }
+    activated_at { Time.zone.now }
 
     trait :user_with_microposts do
       transient do
