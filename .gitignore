@@ -22,4 +22,7 @@
 
 .byebug_history
 
-/vendor/bundle/*
+/vendor/bundle
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
