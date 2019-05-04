@@ -22,7 +22,6 @@
 
 .byebug_history
 
-/vendor/bundle
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
