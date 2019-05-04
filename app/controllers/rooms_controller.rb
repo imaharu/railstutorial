@@ -7,10 +7,14 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.new
   end
 
+  def show
+    @users = Room.find(params[:id]).users
+  end
+
   def create
-    @user = current_user
-    @room = @user.rooms.new(room_params)
-    if @user.save
+    user = current_user
+    room = user.rooms.new(room_params)
+    if user.save
     	flash[:success] = "Room created"
     	redirect_to rooms_url
     else
@@ -22,6 +26,6 @@ class RoomsController < ApplicationController
   private
 
 	def room_params
-      params.require(:room).permit(:name)
+    params.require(:room).permit(:name)
   end
 end

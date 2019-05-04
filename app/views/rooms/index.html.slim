@@ -3,8 +3,8 @@ h1
 - if @rooms&.any?
   ol.rooms
     - @rooms.each do |room|
-      span.name
-        = room.name
+      div.name
+        = link_to room.name, room
 = form_with model: @room, local: true do |f|
   = f.label :name
   = f.text_field :name, class: 'form-control'
