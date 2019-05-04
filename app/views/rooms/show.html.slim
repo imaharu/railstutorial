@@ -2,3 +2,13 @@ h1
   | DM show
 - @users.each do |user|
   = user.name
+
+- if @messages&.any?
+  div.message-container
+    - @messages.each do |message|
+      = message.message
+
+= form_with model: @message, url: message_create_room_path, local: true do |f|
+  = f.label :message
+  = f.text_field :message, class: 'form-control'
+  = f.submit "Create Message", class: "btn btn-primary"

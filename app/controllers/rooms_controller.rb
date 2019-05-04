@@ -8,7 +8,10 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @users = Room.find(params[:id]).users
+    room = Room.find(params[:id])
+    @users = room.users
+    @messages = room.messages
+    @message = room.messages.new
   end
 
   def create
@@ -23,9 +26,25 @@ class RoomsController < ApplicationController
     end
   end
 
+  def message_create
+    room = Room.find(params[:id])
+    message = room.messages.new(message_params)
+    if message.save
+      flash[:success] = "Message created"
+      redirect_to room_url
+    else
+      flash[:danger] = "Message not created"
+    	render 'show'
+    end
+  end
+
   private
 
 	def room_params
     params.require(:room).permit(:name)
+  end
+  
+  def message_params
+    params.require(:message).permit(:message).merge(send_user_id: current_user.id)
   end
 end
