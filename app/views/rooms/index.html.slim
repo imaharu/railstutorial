@@ -5,6 +5,7 @@ h1
     - @rooms.each do |room|
       div.name
         = link_to room.name, room
+        = link_to "delete", room, method: :delete, data: { confirm: "You sure?" }
 = form_with model: @room, local: true do |f|
   = f.label :name
   = f.text_field :name, class: 'form-control'

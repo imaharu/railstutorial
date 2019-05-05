@@ -26,6 +26,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    Room.find(params[:id]).destroy
+    flash[:success] = "Room deleted"
+    redirect_to rooms_url
+  end
+
   def message_create
     room = Room.find(params[:id])
     message = room.messages.new(message_params)
