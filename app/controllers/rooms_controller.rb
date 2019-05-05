@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
 
   def show
     room = Room.find(params[:id])
-    @users = room.users
+    @room_users = room.users
     @messages = room.messages
     @message = room.messages.new
   end
@@ -30,6 +30,19 @@ class RoomsController < ApplicationController
     Room.find(params[:id]).destroy
     flash[:success] = "Room deleted"
     redirect_to rooms_url
+  end
+
+  def add_users
+    room = Room.find(params[:id])
+    user = User.find_by(atmark: params[:atmark])
+    entry = Entry.new(user_id: user&.id, room_id: room&.id)
+    if entry.save
+      flash[:success] = "Add User"
+      redirect_to room_url
+    else
+      flash[:danger] = "Not Add User"
+    	render 'index'
+    end
   end
 
   def message_create

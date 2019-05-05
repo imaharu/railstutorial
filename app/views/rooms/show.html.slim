@@ -1,7 +1,13 @@
 h1
   | DM show
-- @users.each do |user|
-  = user.name
+
+= form_with url: add_users_room_path, local: true do |f|
+  = f.label :atmark
+  = f.text_field :atmark, class: 'form-control'
+  = f.submit "Add user to Room", class: "btn btn-primary"
+
+- @room_users.each do |room_user|
+  = room_user.name
 
 - if @messages&.any?
   div.message-container
