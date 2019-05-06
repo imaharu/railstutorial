@@ -1,18 +1,15 @@
 # == Schema Information
 #
-# Table name: microposts
+# Table name: rooms
 #
 #  id         :integer          not null, primary key
-#  content    :text
-#  user_id    :integer
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  picture    :string
 #
 
 FactoryBot.define do
-  factory :micropost do
-    content { Faker::Lorem.sentence }
-    association :user
+  factory :room do
+    name { "MyString" }
   end
 end
