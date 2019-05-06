@@ -38,11 +38,10 @@ class RoomsController < ApplicationController
     entry = Entry.new(user_id: user&.id, room_id: room&.id)
     if entry.save
       flash[:success] = "Add User"
-      redirect_to room_url
     else
       flash[:danger] = "Not Add User"
-    	render 'index'
     end
+    redirect_to room_url
   end
 
   def message_create
@@ -50,11 +49,10 @@ class RoomsController < ApplicationController
     message = room.messages.new(message_params)
     if message.save
       flash[:success] = "Message created"
-      redirect_to room_url
     else
       flash[:danger] = "Message not created"
-    	render 'show'
     end
+    redirect_to room_url
   end
 
   private

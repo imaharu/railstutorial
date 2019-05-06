@@ -1,12 +1,16 @@
 h1
   | DM
-- if @rooms&.any?
-  ol.rooms
-    - @rooms.each do |room|
-      div.name
-        = link_to room.name, room
-        = link_to "delete", room, method: :delete, data: { confirm: "You sure?" }
-= form_with model: @room, local: true do |f|
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
-  = f.submit "Create New room", class: "btn btn-primary"
+.row
+  .col-md-8.col-md-offset-2
+    - if @rooms&.any?
+      .list-group
+        - @rooms.each do |room|
+          .list-group-item
+            | ルーム名 : 
+            = link_to room.name, room
+            = link_to "delete", room, method: :delete, data: { confirm: "You sure?" },
+              class: 'pull-right badge progress-bar-danger'
+    = form_with model: @room, local: true do |f|
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      = f.submit "Create New room", class: "btn btn-primary"

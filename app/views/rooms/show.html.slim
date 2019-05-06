@@ -1,20 +1,30 @@
 h1
   | DM show
 
-= form_with url: add_users_room_path, local: true do |f|
-  = f.label :atmark
-  = f.text_field :atmark, class: 'form-control'
-  = f.submit "Add user to Room", class: "btn btn-primary"
+.row
+  .col-md-7.col-md-offset-1
 
-- @room_users.each do |room_user|
-  = room_user.name
+    - if @messages.exists?
+      .list-group
+        - @messages.each_with_index do |message, index|
+          - next if index == (@messages.size - 1)
+          .list-group-item
+            = message.message
 
-- if @messages&.any?
-  div.message-container
-    - @messages.each do |message|
-      = message.message
+    = form_with model: @message, url: message_create_room_path, local: true do |f|
+      = f.label :message
+      = f.text_field :message, class: 'form-control'
+      = f.submit "Create Message", class: "btn btn-primary btn-sm"
 
-= form_with model: @message, url: message_create_room_path, local: true do |f|
-  = f.label :message
-  = f.text_field :message, class: 'form-control'
-  = f.submit "Create Message", class: "btn btn-primary"
+
+  .col-md-3
+    h3
+      | Room User
+    .list-group
+      - @room_users.each do |room_user|
+        .list-group-item
+          = room_user.name
+    = form_with url: add_users_room_path, local: true do |f|
+      = f.label :atmark
+      = f.text_field :atmark, class: 'form-control'
+      = f.submit "Add user to Room", class: "btn btn-primary"
